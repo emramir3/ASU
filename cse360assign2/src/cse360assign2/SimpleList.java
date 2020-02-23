@@ -50,6 +50,31 @@ public class SimpleList
 	*/
 	public void add(int arrayNum)
 	{
+		//if array list is full, increase the size by 50%
+		if (count == list.length)
+		{
+			//calculate array increase by 50%
+			int arrayIncrease = count + (count/2); 
+	       
+	        //create a new array
+	        int resizedArray[] = new int[arrayIncrease];
+	
+	        //copy list array elements into resized array
+	        for (int i = 0; i < arrayIncrease && i < count; i++) 
+	        {
+	        	resizedArray[i] = list[i];
+	        }
+	
+	        //replace original array with new resized array
+	        list = resizedArray;
+	
+	        // adjust count
+	        if (arrayIncrease < count) 
+	        {
+	        	count = arrayIncrease;
+	        }
+		}
+		
 		//empty array
 		if (count == 0)
 		{
@@ -59,7 +84,7 @@ public class SimpleList
 		}
 		
 		//non-empty array with less than 10 elements
-		else if (count < 10)
+		else
 		{
 			for(int parameterNum = count; parameterNum >= 0; parameterNum--)
 			{
@@ -72,19 +97,6 @@ public class SimpleList
 			
 		    list[0] = arrayNum;
 		    count++;
-		}
-		
-		//full array (10 elements)
-		else
-		{
-			//loops through array to push elements 1-9 to the right
-			for (int parameterNum = count - 2; parameterNum >= 0; parameterNum--)
-			{
-				//shifts array list right
-			    list[parameterNum + 1] = list[parameterNum];
-			}
-		
-			list[0] = arrayNum;
 		}
 	}
  
@@ -113,6 +125,31 @@ public class SimpleList
 		    //decrement count after removing first instance of parameter
 		    count--;
 		 }
+		
+		//calculate 75% of capacity
+        int capacity = 3 * list.length / 4;
+
+        //check if list has more than 25% empty places
+        if (count < capacity)
+        {
+        	//create a new array
+            int downsizedArray[] = new int[count];
+
+            //copy list array elements into down sized array
+            for (int i = 0; i < count; i++) 
+            {
+            	downsizedArray[i] = list[i];
+            }
+
+            //replace original array with new down sized array
+            list = downsizedArray;
+
+            //adjusting count
+            if (capacity < count) 
+            {
+            	count = capacity;
+            }
+        }
 	}
 	
 
