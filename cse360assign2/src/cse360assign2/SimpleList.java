@@ -1,29 +1,28 @@
 /**
-* @author  Elizabeth Ramirez
-* Class ID: 146
-* Assignment #: 1
-* <p>
-* 
-* <h1>SimpleList</h1>
-* The SimpleList program implements six different methods to give 
-* practice with Javadoc, creating Junit tests, and using Junit.
-*
-*/
-
-package cse360assign2;
+ * @author  Elizabeth Ramirez
+ * Class ID: 146
+ * Assignment #: 2
+ * <p>
+ * 
+ * <h1>SimpleList</h1>
+ * The SimpleList program implements nine different methods to give 
+ * practice with Javadoc, creating Junit tests, and using Junit.
+ *
+ */
 
 /**
-* Represents a simple array list.
-* Parameters in the array list can be added, removed, searched, counted
-* and displayed as a string.
+ * Represents a simple array list.
+ * Parameters in the array list can be added, removed, searched, counted, and displayed as a string. It will also
+ * provide you the size of the array, parameter at index 0,
+ * and can append an element to the end of the list.
  */
 public class SimpleList
 {
 	/**
-	* Declare Variables
-	*  Creates the array.
-	*  Creates the counter.
-	*/
+	 * Declare Variables
+	 *  Creates the array.
+	 *  Creates the counter.
+	 */
 	private int[] list;
 	private int count;
 
@@ -41,13 +40,13 @@ public class SimpleList
 
 
 	/**
-	* Adds a parameter to the beginning of the array list at index 0.
-	* <p>
-	* Also moves all the other integers in the list over so there is room.
-	* If the list is full, the last element "falls off" the array list.
-	*
-	* @param arrayNum  The parameter number that will be added at index 0
-	*/
+	 * Adds a parameter to the beginning of the array list at index 0.
+	 * <p>
+	 * Also moves all the other integers in the list over so there is room.
+	 * If the list is full, then the array size is increased by 50%.
+	 *
+	 * @param arrayNum  The parameter number that will be added at index 0
+	 */
 	public void add(int arrayNum)
 	{
 		//if array list is full, increase the size by 50%
@@ -55,24 +54,24 @@ public class SimpleList
 		{
 			//calculate array increase by 50%
 			int arrayIncrease = count + (count/2); 
-	       
-	        //create a new array
-	        int resizedArray[] = new int[arrayIncrease];
-	
-	        //copy list array elements into resized array
-	        for (int i = 0; i < arrayIncrease && i < count; i++) 
-	        {
-	        	resizedArray[i] = list[i];
-	        }
-	
-	        //replace original array with new resized array
-	        list = resizedArray;
-	
-	        // adjust count
-	        if (arrayIncrease < count) 
-	        {
-	        	count = arrayIncrease;
-	        }
+      
+			//create a new array
+			int resizedArray[] = new int[arrayIncrease];
+
+			//copy list array elements into resized array
+			for (int i = 0; i < arrayIncrease && i < count; i++) 
+			{
+				resizedArray[i] = list[i];
+			}
+
+			//replace original array with new resized array
+			list = resizedArray;
+
+			//adjust count
+			if (arrayIncrease < count) 
+			{
+				count = arrayIncrease;
+			}
 		}
 		
 		//empty array
@@ -102,12 +101,14 @@ public class SimpleList
  
 
 	/**
-	* Searches for first instance of parameter array list and removes it.
-	* <p>
-	* Also, other values in the array list are moved down the list.
-	*
-	* @param arrayNum  The parameter number to be removed.
-	*/
+	 * Searches for first instance of parameter array list and removes it.
+	 * <p>
+	 * Also, other values in the array list are moved down the list.
+     * If list has more than 25% empty places, the array is decreased
+     * to the size of amount of elements in the array.
+	 *
+	 * @param arrayNum  The parameter number to be removed.
+	 */
 	public void remove(int arrayNum)
 	{
 		//locate index location of first instance of parameter
@@ -133,32 +134,31 @@ public class SimpleList
         if (count < capacity)
         {
         	//create a new array
-            int downsizedArray[] = new int[count];
+        	int downsizedArray[] = new int[count];
 
-            //copy list array elements into down sized array
-            for (int i = 0; i < count; i++) 
-            {
-            	downsizedArray[i] = list[i];
-            }
+        	//copy list array elements into down sized array
+        	for (int i = 0; i < count; i++) 
+        	{
+        		downsizedArray[i] = list[i];
+        	}
 
-            //replace original array with new down sized array
-            list = downsizedArray;
+        	//replace original array with new down sized array
+        	list = downsizedArray;
 
-            //adjusting count
-            if (capacity < count) 
-            {
-            	count = capacity;
-            }
+        	//adjust the count
+        	if (capacity < count) 
+        	{
+        		count = capacity;
+        	}
         }
 	}
 	
-
-	 
+ 
 	/**
-	* Returns the number of elements stored in the array list.
-	*
-	* @return count Number of elements in the array list.
-	*/
+	 * Returns the number of elements stored in the array list.
+	 *
+	 * @return count Number of elements in the array list.
+	 */
 	public int count()
 	{
 		return count;
@@ -166,12 +166,12 @@ public class SimpleList
 
 
 	/**
-	* Returns the array list as a String.
-	* <p>
-	* Elements must be separated by a space, with no space after last integer.
-	*
-	* @return arrayString  Returns the array list parameters as a string.
-	*/
+	 * Returns the array list as a String.
+	 * <p>
+	 * Elements must be separated by a space, with no space after last integer.
+	 *
+	 * @return arrayString  Returns the array list parameters as a string.
+	 */
 	public String toString()
 	{
 		//declare an empty string	
@@ -196,13 +196,13 @@ public class SimpleList
 	
 
 	/**
-	* Searches for the location of the parameter in the array list.
-	* <p>
-	* If the parameter is not in the list, return -1
-	*
-	* @param arrayNum     The parameter number to be searched.
-	* @return arrayIndex  Returns the index of the parameter searched for.
-	*/
+	 * Searches for the location of the parameter in the array list.
+	 * <p>
+	 * If the parameter is not in the list, return -1
+	 *
+	 * @param arrayNum     The parameter number to be searched.
+	 * @return arrayIndex  Returns the index of the parameter searched for.
+	 */
 	public int search(int arrayNum)
 	{
 		//set arrayIndex to -1 as default
@@ -221,5 +221,77 @@ public class SimpleList
 	
 		//return the parameter if found	
 		return arrayIndex;
+	}
+
+
+	/**
+	 * Appends the parameter to the end of the list.
+	 *
+	 * @param appendElement     The parameter to be appended to end of list
+	 */
+	public void append(int appendElement)
+	{
+		//if array list is full, increase the size by 50%
+		if (count == list.length)
+		{
+			//calculate array increase by 50%
+			int arrayIncrease = count + (count/2); 
+      
+			//create a new array
+			int appendedArray[] = new int[arrayIncrease];
+
+			//copy list array elements into appended array
+			for (int i = 0; i < arrayIncrease && i < count; i++) 
+			{
+				appendedArray[i] = list[i];
+			}
+
+			//replace original array with new appended array
+			list = appendedArray;
+
+			//adjust count
+			if (arrayIncrease < count) 
+			{
+				count = arrayIncrease;
+			}
+		}
+
+		//add at count index
+		list[count] = appendElement;
+		count++;
+	}
+
+	
+	/**
+	 * Returns the first element in the list.
+	 * <p>
+	 * If the parameter is not in the list, return -1
+	 *
+	 * @return  Returns the parameter at index 0.
+	 */
+	public int first()
+	{
+		if (count == 0)
+		{
+			//empty array
+			return -1;
+		}
+		else
+		{
+			//return first element
+			return list[0];
+		}
+	}
+
+
+	/**
+	 * Returns the current number of possible locations in the list.
+	 *
+	 * @return  Returns the length of the array list.
+	 */
+	public int size()
+	{
+		//return capacity of array
+		return list.length;
 	}
 }
