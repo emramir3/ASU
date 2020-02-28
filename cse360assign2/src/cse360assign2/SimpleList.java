@@ -244,9 +244,9 @@ public class SimpleList
 			int appendedArray[] = new int[arrayIncrease];
 
 			//copy list array elements into appended array
-			for (int i = 0; i < arrayIncrease && i < count; i++) 
+			for (int newArray = 0; newArray < arrayIncrease && newArray < count; newArray++) 
 			{
-				appendedArray[i] = list[i];
+				appendedArray[newArray] = list[newArray];
 			}
 
 			//replace original array with new appended array
