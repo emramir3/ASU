@@ -6,15 +6,18 @@
  * 
  * <h1>SimpleList</h1>
  * The SimpleList program implements nine different methods to give 
- * practice with Javadoc, creating Junit tests, and using Junit.
+ * practice with using a version control system (github).
  *
  */
 
+package cse360assign2;
+
 /**
  * Represents a simple array list.
- * Parameters in the array list can be added, removed, searched, counted, and displayed as a string. It will also
- * provide you the size of the array, parameter at index 0,
- * and can append an element to the end of the list.
+ * Parameters in the array list can be added, removed, searched, counted, 
+ * and displayed as a string. It will also provide you the size of the array,
+ * parameter at index 0, parameter at last index, and can append an element 
+ * to the end of the list.
  */
 public class SimpleList
 {
@@ -280,6 +283,28 @@ public class SimpleList
 		{
 			//return first element
 			return list[0];
+		}
+	}
+	
+	
+	/**
+	 * Returns the last element in the list.
+	 * <p>
+	 * If the parameter is not in the list, return -1
+	 *
+	 * @return  Returns the last element in the list.
+	 */
+	public int last()
+	{
+		if (count == 0)
+		{
+			//empty array
+			return -1;
+		}
+		else
+		{
+			//return last element
+			return list[count];
 		}
 	}
 
