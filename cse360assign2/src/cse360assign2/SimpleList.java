@@ -62,9 +62,9 @@ public class SimpleList
 			int resizedArray[] = new int[arrayIncrease];
 
 			//copy list array elements into resized array
-			for (int i = 0; i < arrayIncrease && i < count; i++) 
+			for (int newArray = 0; newArray < arrayIncrease && newArray < count; newArray++) 
 			{
-				resizedArray[i] = list[i];
+				resizedArray[newArray] = list[newArray];
 			}
 
 			//replace original array with new resized array
@@ -140,9 +140,9 @@ public class SimpleList
         	int downsizedArray[] = new int[count];
 
         	//copy list array elements into down sized array
-        	for (int i = 0; i < count; i++) 
+        	for (int newArray = 0; newArray < count; newArray++) 
         	{
-        		downsizedArray[i] = list[i];
+        		downsizedArray[newArray] = list[newArray];
         	}
 
         	//replace original array with new down sized array
@@ -304,7 +304,7 @@ public class SimpleList
 		else
 		{
 			//return last element
-			return list[count];
+			return list[count - 1];
 		}
 	}
 
